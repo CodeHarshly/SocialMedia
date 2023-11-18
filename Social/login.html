@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <link rel="stylesheet" href ="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Web</title>
+</head>
+<body>
+    <!-----------------------login & signup--------------------->
+    <div class="login-bg">
+        <div class="login-page" >
+            <div class="login-content" id="user-login">
+                <div class="login-top">
+                    <h1>Planner</h1>
+                </div>
+                <div class="login-box LoginInput">
+                    <form action="" id="LoginForm">
+                        <div class="error-text"><span id="loginError">Error</span></div>
+                        <div class="input-box">
+                            <input type="text" name="Lusername" placeholder="Username or Email">
+                            <input type="password" name="Lpassword" placeholder="Password">
+                        </div>
+                        <div class="Submit">
+                            <input type="submit" id="loginSubmit" name="Lsubmit" value="LogIn">
+                            <a href="#forgotpass">forgot password?</a>
+                        </div>
+                    </form>
+                    
+                </div>
+                
+                <div class="NewLogin">
+                    <p>Don't have an account? <span id="signupBTN">Sign up</span></p>
+                </div>
+            </div>
+            <div class="login-content" id="signup">
+                <div class="login-top">
+                    <h1>Planner</h1>
+                </div>
+                <div class="login-box">
+                    <form id="myForm" action="" method="post" enctype="multipart/form-data">
+                        <div class="error-text"><span id="signupError">Error</span></div>
+                        <div class="grid-items">
+                            <div class="input-box">
+                                <label>Name:</label>
+                                <input type="text" name="fname" placeholder="Name" required pattern="[a-zA-Z'-'\s]*">
+                            </div>
+                            <div class="input-box">
+                                <label>Mobile:</label>
+                            <input type="phone" name="phone" placeholder="Enter Mobile Number" required pattern="[0-9]{10}" oninvalid="this.setCustomValidity('Enter 10 Digits Number')" oninput="this.setCustomValidity('')">
+                            </div>
+                        </div>
+                        <div class="input-box">
+                            <label>Username:</label>
+                            <input type="text" name="username" placeholder="Enter Username" required>
+                        </div>
+                        <div class="input-box">
+                            <label>Email:</label>
+                            <input type="email" name="email" placeholder="Enter Email" required>
+                        </div>
+                        <div class="grid-items">
+                            <div class="input-box">
+                                <label>Password:</label>
+                                <input type="password" name="password" placeholder="Enter Password" required>
+                            </div>
+                            <div class="input-box">
+                                <label>Confirm Password:</label>
+                                <input type="password" name="cpassword" placeholder="Confirm Password" required>
+                            </div>
+                        </div>
+                        <div class="Submit">
+                            <input type="submit" id="signupSubmit" name="submit" value="SignUp">
+                        </div>
+                    </form>
+                    
+                </div>
+                <div class="NewLogin">
+                    <p>Already have an account? <span id="loginBTN">Login</span></p>
+                </div>
+            </div>
+            <div class="login-content" id="verifyEmail">
+                <div class="login-top">
+                    <h1>Planner</h1>
+                </div>
+                <div class="login-box">
+                    <h3>Verify Your Account</h3>
+                    <p>We emailed you the four digit OTP to enter the code below to confirm your email address</p>
+                    <form action="" autocomplete="off" id="OTPinput">
+                        <div class="error-text verifyError"><span id="verifyError">Error</span></div>
+                        <div class="OTP-box">
+                            <input type="number" name="otp1" class="OTP-field" placeholder="" min="0" max="9" required onpaste="false">
+                            <input type="number" name="otp2" class="OTP-field" placeholder="" min="0" max="9" required onpaste="false">
+                            <input type="number" name="otp3" class="OTP-field" placeholder="" min="0" max="9" required onpaste="false">
+                            <input type="number" name="otp4" class="OTP-field" placeholder="" min="0" max="9" required onpaste="false">
+                        </div>
+                        <div class="Submit">
+                            <input type="submit" id="verifySubmit" name="Vsubmit" value="Verify">
+                            <a href="#resendit">Resend it</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--------------script---------------->
+
+    <script src="register.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="css/userpage.css">
+    <link rel="stylesheet" href ="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Weather</title>
+</head>
+<body>
+    <header>
+        <div class="username">harshdeepsingh</div>
+        <div class="NavIcon">
+            <i class="fa-regular fa-square-plus"></i>
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </header>
+    <main>
+        <section class="userTopSec">
+            <div class="UserLeftSide">
+                <img src="images/Harsh.png" alt="" id="profileImage">
+            </div>
+            <div class="UserRightSide">
+                <div class="userTitle">
+                    <h3>UserName</h3>
+                </div>
+                <div class="userDetails">
+                    <div class="posts">
+                        <h4>0</h4>
+                        <p>posts</p>
+                    </div>
+                    <div class="followers">
+                        <h4>0</h4>
+                        <p>followers</p>
+                    </div>
+                    <div class="following">
+                        <h4>0</h4>
+                        <p>following</p>
+                    </div>
+                </div>
+                <div class="button">
+                    <button class="editprofile">Edit profile</button>
+                    <button class="addFriend"><i class="fa-solid fa-user-plus"></i></button>
+                </div>
+            </div>
+        </section>
+        <section class="UserMiddle">
+            <div class="bioDetails">
+                <h4 class="name">Name</h4>
+                <p class="bio">Bio</p>
+                
+                <div class="stories"></div>
+            </div>
+        </section>
+        <section class="usercontent">
+            <div class="postIcon">
+                <button class="button activePostIcon">Posts</button>
+                <button>Taged</button>
+            </div>
+        </section>
+    </main>
+    <div class="imgEdit">
+        <div class="imgEdit-box">
+            <h3>Add new Profile</h3>
+            <form action="POST" id="profileImgUpload" enctype="multipart/form-data">
+                <div class="box-content">
+                    <img src="" alt="" id="add-profileImg">
+                    <label for="profile-upload" class="imgEdit-btn">
+                        <span><i class="fa fa-add"></i></span>
+                        Choose image
+                    </label>
+                    <input type="file" accept="image/jpg, image/png, img/jpeg" id="profile-upload">
+                    
+                </div>
+                <input type="submit" value="Upload" class="submitPofImg">
+            </form>
+            <div class="imgEdit-close"><i class="fa-solid fa-xmark"></i></div>
+        </div>
+        
+    </div>
+
+    <!---------------script-------------->
+    <script  id="user-page-script" src="userpage.js"></script>
+    
+</body>
+</html>

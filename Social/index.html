@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/userpage.css">
+    <link rel="stylesheet" href ="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Web</title>
+</head>
+<body>
+    <!---------------NAV------------------>
+    <aside>
+        <div class="logo">
+            <a href="index.html">Planner</a>
+        </div>
+        <div class="nav">
+            <div class="icon active" id="homeIcon">
+                <i class="fa-solid fa-house"></i><span>Home</span>
+            </div>
+            <div class="icon" id="searchIcon">
+                <i class='bx bx-search'></i><span>Search</span>
+            </div>
+            <div class="icon" id="exploreIcon">
+                <i class="fa-regular fa-compass"></i><span>Explore</span>
+            </div>
+            <div class="icon" id="msgIcon">
+                <i class="fa-regular fa-message active"></i><span>Message</span>
+            </div>
+            <div class="icon" id="notifyIcon">
+                <i class="fa-regular fa-bell"></i><span>Notification</span>
+            </div>
+            <div class="icon" id="CPIcon">
+                <i class="fa-regular fa-square-plus "></i><span>Create Post</span>
+            </div>
+            <div class="icon" id="userIcon">
+                <i class="fa-regular fa-user"></i><span>You</span>
+            </div>
+            <div class="icon menuIcon" id="menuIcon">
+                <i class='bx bx-menu' id="changeMenuIcon"></i><span>Menu</span>
+                
+            </div>
+            <!-------------------------Menu----------------------------------->
+            <div class="menu-box" id="menu-box">
+                <div class="menu-content">
+                    <div class="menu-top">
+                        <i class="fa-solid fa-x" id="closeMenu"></i>
+                        <p>Menu</p>
+                    </div>
+                    <div class="setting hideMenu">
+                        <i class="fa-solid fa-gear"></i>
+                        <p>Setting</p>
+                    </div>
+                    <div class="saved hideMenu">
+                        <i class="fa-regular fa-bookmark"></i>
+                        <p>Saved</p>
+                    </div>
+                    <div class="theme hideMenu" >
+                        <i class="fa-regular fa-sun"></i>
+                        <p>Theme</p>
+                    </div>
+                    <div class="report hideMenu">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <p>Report</p>
+                    </div>
+                    <div class="switchAccount hideMenu"><p>Switch Account</p></div>
+                    <div class="logOut hideMenu"><p>Log Out</p></div>
+                    <div class="logoutbtn">
+                        <h4>Log Out</h4>
+                        <div class="logoutbtncont">
+                            <a href="php/logout.php"><button id="logout-btn">Log Out</button></a>
+                            <button id="logout-cancel">Cancel</button>
+                        </div>
+                    </div>
+                    <div class="themecontent">
+                        <div class="theme-top">
+                            <i class="fa-solid fa-angle-left" id="closeTheme"></i>
+                            <h4>Theme</h4>
+                        </div>
+                        <div class="theme-bottom">
+                            <p>Dark mode:</p>
+                            <i class="fa-regular fa-moon" id="moon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </aside>
+    
+    <!------------------Search-------------------->
+    <section>
+        <div class="Search">
+            <div class="close" id="closeSearch"><i class="fa-solid fa-x"></i></div>
+            <div class="search-top">
+                <h2>Search</h2>
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search" onchange="">
+                    <i class="fa-regular fa-circle-xmark"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-----------------Message--------------------->
+    <section>
+        <div class="message">
+            <i class="fa-solid fa-x" id="msgClose"></i>
+            <div class="msg-top">
+                <h2>Message</h2>
+            </div>
+            <div class="msg-box">
+                <div class="profile-picture">
+                    <img src="images/blackwidwo2.jpg" alt="">
+                    <!--add online icon here-->
+                </div>
+                <div class="msg-data">
+                    <h3 class="username">ldAFPDFD</h3>
+                    <div class="msg">
+                        <p>IHDFPFPGAH.</p>
+                        <small>2d</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!----------------Notification---------------------->
+    <section>
+        <div class="notification">
+            <i class="fa-solid fa-x" id="notifyClose"></i>
+            <div class="notice-top">
+                <h2>Notification</h2>
+            </div>
+            <div class="notice-box">
+                <div class="profile-picture">
+                    <img src="images/blackwidwo2.jpg" alt="">
+                </div>
+                <div class="notice-data">
+                    <p><span class="username">ldAFPDFD</span>
+                    IHDFPFPGAH. 
+                    <small>2d</small></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-----------------Create post---------------->
+    <div class="post-bg">
+        <div class="post-box">
+            <div class="post-top">
+                <h1>Add New Post</h1>
+            </div>
+            <form action="" id="postUploadForm" enctype="multipart/form-data" method="post">
+                <div class="post-content">
+                    <div class="post-img">
+                        <img src="" alt="" id="add-post">
+                        <label for="post-upload" class="post-btn">
+                            <span><i class="fa fa-add"></i></span>
+                            Upload image
+                        </label>
+                        <input type="file" name="image" accept="image/jpg, image/png, img/jpeg" id="post-upload">
+                    </div>
+                    <div class="right-content">
+                        <div class="post-caption">
+                            <h3>Caption:</h3>
+                            <textarea name="caption" placeholder="Add Caption" maxlength="1000" oninput="countCharacters(this)"></textarea>
+                            <div class="caption-bottom">
+                                <i class="fa-regular fa-face-smile"></i>
+                                <p id="charCount">0/1000</p>
+                            </div>
+                        </div>
+                        <div class="post-submit">
+                            <input type="submit" class="btn" value="Add Post">
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="post-close"><i class="fa-solid fa-xmark"></i></div>
+        </div>
+    </div>
+    
+
+    
+    <!----------------------user page-------------------------------------->
+    <div class="user-page" id="user-page">
+        <header class="UserHead">
+            <div class="usernameHead">UserName</div>
+            <div class="NavIcon">
+                <i class="fa-regular fa-square-plus"></i>
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </header>
+        <main>
+            <section class="userTopSec">
+                <div class="UserLeftSide">
+                    <img src="images/Harsh.png" alt="" id="profileImage">
+                </div>
+                <div class="UserRightSide">
+                    <div class="userTitle">
+                        <h3>UserName</h3>
+                    </div>
+                    <div class="userDetails">
+                        <div class="posts">
+                            <h4>0</h4>
+                            <p>posts</p>
+                        </div>
+                        <div class="followers">
+                            <h4>0</h4>
+                            <p>followers</p>
+                        </div>
+                        <div class="following">
+                            <h4>0</h4>
+                            <p>following</p>
+                        </div>
+                    </div>
+                    <div class="button">
+                        <button class="editprofile">Edit profile</button>
+                        <button class="addFriend"><i class="fa-solid fa-user-plus"></i></button>
+                    </div>
+                </div>
+            </section>
+            <section class="UserMiddle">
+                <div class="bioDetails">
+                    <h4 class="name">Name</h4>
+                    <p class="bio">Bio</p>
+                    
+                    <div class="stories"></div>
+                </div>
+            </section>
+            <section class="usercontent">
+                <div class="postIcon">
+                    <button class="button activePostIcon">Posts</button>
+                    <button>Taged</button>
+                </div>
+            </section>
+        </main>
+        <div class="imgEdit">
+            <div class="imgEdit-box">
+                <h3>Add new Profile</h3>
+                <form action="" id="profileImgUpload" enctype="multipart/form-data">
+                    <div class="box-content">
+                        <img src="" alt="" id="add-profileImg">
+                        <label for="profile-upload" class="imgEdit-btn">
+                            <span><i class="fa fa-add"></i></span>
+                            Choose image
+                        </label>
+                        <input type="file" name="image" accept="image/jpg, image/png, img/jpeg" id="profile-upload">
+                    </div>
+                    <input type="submit" value="Upload" class="submitPofImg">
+                </form>
+                <div class="imgEdit-close"><i class="fa-solid fa-xmark"></i></div>
+            </div>
+        </div>
+        <main class="userPosts"></main>
+    </div>
+    <!-------------------------FEED----------------------------->
+    <main id="home">
+        <div class="feeds">
+            <div class="feed">
+                <div class="feed-top">
+                    <div class="user">
+                        <div class="profile-picture">
+                            <img src="php/upload/default/profile.jpg" alt="">
+                        </div>
+                        <div class="info">
+                            <h3>UserName</h3>
+                            <div class="time txt-gry">
+                                <small>day ago</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit">
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+                </div>
+                <div class="feed-content">
+                    <img src="" alt="" id="feedImg">
+                </div>
+                <div class="action-button">
+                    <div class="interaction-button">
+                        <span><i class="fa fa-heart"></i></span>
+                        <span><i class="fa fa-comment-dots"></i></span>
+                        <span><i class="fa fa-link"></i></span>
+                    </div>   
+                    <div class="bookmark">
+                        <i class="fa fa-bookmark"></i>
+                    </div>
+                </div>
+                <div class="caption">
+                    <p>Caption</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!--------------script---------------->
+    
+
+    <script src="script.js"></script>
+    <script  src="userpage.js"></script>
+    <!--script>
+        // Read URL on page load
+        const urlParams = new URLSearchParams(window.location.search);
+        const initialState = urlParams.get('state') || 'homeIcon';
+
+        const savedState = localStorage.getItem('currentState');
+
+        // Use the saved state if available, otherwise use the state from the URL
+        const initialSavedState = savedState || initialState;
+
+        // Display initial content based on the URL
+        handleClick(initialState);
+    </script-->
+</body>
+</html>
