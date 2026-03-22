@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/userpage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Planner</title>
+</head>
+<body>
+    <!-- NAV -->
+    <aside>
+        <div class="logo"><a href="Planner.php">Planner</a></div>
+        <div class="nav">
+            <div class="icon active" id="homeIcon"><i class="fa-solid fa-house"></i><span>Home</span></div>
+            <div class="icon" id="searchIcon"><i class='bx bx-search'></i><span>Search</span></div>
+            <div class="icon" id="exploreIcon"><i class="fa-regular fa-compass"></i><span>Explore</span></div>
+            <div class="icon" id="msgIcon"><i class="fa-regular fa-message"></i><span>Message</span></div>
+            <div class="icon" id="notifyIcon"><i class="fa-regular fa-bell"></i><span>Notification</span><span class="badge" id="notifyBadge" style="display:none"></span></div>
+            <div class="icon" id="CPIcon"><i class="fa-regular fa-square-plus"></i><span>Create Post</span></div>
+            <div class="icon" id="userIcon"><i class="fa-regular fa-user"></i><span>You</span></div>
+            <div class="icon menuIcon" id="menuIcon"><i class='bx bx-menu'></i><span>Menu</span></div>
+            <!-- Menu -->
+            <div class="menu-box" id="menu-box">
+                <div class="menu-content">
+                    <div class="menu-top"><i class="fa-solid fa-x" id="closeMenu"></i><p>Menu</p></div>
+                    <div class="setting hideMenu"><i class="fa-solid fa-gear"></i><p>Setting</p></div>
+                    <div class="saved hideMenu"><i class="fa-regular fa-bookmark"></i><p>Saved</p></div>
+                    <div class="theme hideMenu"><i class="fa-regular fa-sun"></i><p>Theme</p></div>
+                    <div class="report hideMenu"><i class="fa-solid fa-triangle-exclamation"></i><p>Report</p></div>
+                    <div class="switchAccount hideMenu"><p>Switch Account</p></div>
+                    <div class="logOut hideMenu"><p>Log Out</p></div>
+                    <div class="logoutbtn">
+                        <h4>Log Out</h4>
+                        <div class="logoutbtncont">
+                            <a href="php/logout.php"><button id="logout-btn">Log Out</button></a>
+                            <button id="logout-cancel">Cancel</button>
+                        </div>
+                    </div>
+                    <div class="themecontent">
+                        <div class="theme-top"><i class="fa-solid fa-angle-left" id="closeTheme"></i><h4>Theme</h4></div>
+                        <div class="theme-bottom"><p>Dark mode:</p><i class="fa-regular fa-moon" id="moon"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- SEARCH -->
+    <section class="searchSection">
+        <div class="Search">
+            <div class="close" id="closeSearch"><i class="fa-solid fa-x"></i></div>
+            <div class="search-top">
+                <h2>Search</h2>
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="searchInput" placeholder="Search">
+                    <i class="fa-regular fa-circle-xmark"></i>
+                </div>
+            </div>
+            <div id="searchResults"></div>
+        </div>
+        <div class="userSearch">
+            <div class="searchUserTop"></div>
+            <main class="userPosts" id="searchUserPost"></main>
+        </div>
+    </section>
+
+    <!-- MESSAGES -->
+    <section>
+        <div class="message">
+            <div class="msg-header-row">
+                <i class="fa-solid fa-x" id="msgClose"></i>
+                <h2>Messages</h2>
+                <i class="fa-solid fa-pen-to-square" id="newMsgBtn" title="New message"></i>
+            </div>
+            <!-- conversation list -->
+            <div id="conversationList" class="msg-conversations"></div>
+            <!-- chat view -->
+            <div id="chatView" class="msg-chat-view" style="display:none">
+                <div class="chat-header">
+                    <i class="fa-solid fa-arrow-left" id="backToList"></i>
+                    <img src="" id="chatPartnerImg" class="chat-partner-img">
+                    <span id="chatPartnerName"></span>
+                </div>
+                <div id="chatMessages" class="chat-messages"></div>
+                <div class="chat-input-box">
+                    <input type="text" id="messageInput" placeholder="Message...">
+                    <button id="sendMsgBtn"><i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+            </div>
+            <!-- new message search -->
+            <div id="msgUserSearch" class="msg-user-search" style="display:none">
+                <div class="msg-user-search-header">
+                    <i class="fa-solid fa-arrow-left" id="backFromSearch"></i>
+                    <input type="text" id="msgSearchInput" placeholder="Search users...">
+                </div>
+                <div id="msgSearchResults"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOTIFICATIONS -->
+    <section>
+        <div class="notification">
+            <i class="fa-solid fa-x" id="notifyClose"></i>
+            <div class="notice-top"><h2>Notifications</h2></div>
+            <div id="notificationList" class="notification-list">
+                <p class="notify-empty">No notifications yet</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CREATE POST -->
+    <div class="post-bg">
+        <div class="post-box">
+            <div class="post-top"><h1>Add New Post</h1></div>
+            <form action="" id="postUploadForm" enctype="multipart/form-data" method="post">
+                <div class="post-content">
+                    <div class="post-img">
+                        <img src="" alt="" id="add-post">
+                        <label for="post-upload" class="post-btn">
+                            <span><i class="fa fa-add"></i></span>Upload image
+                        </label>
+                        <input type="file" name="image" accept="image/jpg, image/png, image/jpeg" id="post-upload">
+                    </div>
+                    <div class="right-content">
+                        <div class="post-caption">
+                            <h3>Caption:</h3>
+                            <textarea name="caption" placeholder="Add Caption" maxlength="1000" oninput="countCharacters(this)"></textarea>
+                            <div class="caption-bottom">
+                                <i class="fa-regular fa-face-smile"></i>
+                                <p id="charCount">0/1000</p>
+                            </div>
+                        </div>
+                        <div class="post-submit"><input type="submit" class="btn" value="Add Post"></div>
+                    </div>
+                </div>
+            </form>
+            <div class="post-close"><i class="fa-solid fa-xmark"></i></div>
+        </div>
+    </div>
+
+    <!-- USER PAGE -->
+    <div class="user-page" id="user-page">
+        <header class="UserHead">
+            <div class="usernameHead">UserName</div>
+            <div class="NavIcon">
+                <i class="fa-regular fa-square-plus"></i>
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </header>
+        <main>
+            <section class="userTopSec">
+                <div class="UserLeftSide">
+                    <img src="php/upload/default/profile.jpg" alt="" id="profileImage">
+                </div>
+                <div class="UserRightSide">
+                    <div class="userTitle"><h3>UserName</h3></div>
+                    <div class="userDetails">
+                        <div class="posts"><h4>0</h4><p>posts</p></div>
+                        <div class="followers"><h4>0</h4><p>followers</p></div>
+                        <div class="following"><h4>0</h4><p>following</p></div>
+                    </div>
+                    <div class="button">
+                        <button class="editprofile" id="editProfileBtn">Edit profile</button>
+                        <button class="addFriend"><i class="fa-solid fa-user-plus"></i></button>
+                    </div>
+                </div>
+            </section>
+            <section class="UserMiddle">
+                <div class="bioDetails">
+                    <h4 class="name">Name</h4>
+                    <p class="bio">Bio</p>
+                    <div class="stories"></div>
+                </div>
+            </section>
+            <section class="usercontent">
+                <div class="postIcon">
+                    <button class="button activePostIcon">Posts</button>
+                    <button>Tagged</button>
+                </div>
+            </section>
+        </main>
+        <!-- Profile image edit -->
+        <div class="imgEdit">
+            <div class="imgEdit-box">
+                <h3>Add new Profile</h3>
+                <form action="" id="profileImgUpload" enctype="multipart/form-data">
+                    <div class="box-content">
+                        <img src="" alt="" id="add-profileImg">
+                        <label for="profile-upload" class="imgEdit-btn">
+                            <span><i class="fa fa-add"></i></span>Choose image
+                        </label>
+                        <input type="file" name="image" accept="image/jpg, image/png, image/jpeg" id="profile-upload">
+                    </div>
+                    <input type="submit" value="Upload" class="submitPofImg">
+                </form>
+                <div class="imgEdit-close"><i class="fa-solid fa-xmark"></i></div>
+            </div>
+        </div>
+        <main class="userPosts" id="userPosts"></main>
+    </div>
+
+    <!-- EDIT PROFILE MODAL -->
+    <div class="editProfile-bg" id="editProfileModal" style="display:none">
+        <div class="editProfile-box">
+            <h2>Edit Profile</h2>
+            <form id="editProfileForm">
+                <label>Name</label>
+                <input type="text" name="fname" id="editFname" placeholder="Your name">
+                <label>Username</label>
+                <input type="text" name="username" id="editUsername" placeholder="Username">
+                <label>Bio</label>
+                <textarea name="bio" id="editBio" placeholder="Write something about you..." maxlength="255"></textarea>
+                <button type="submit" class="btn">Save Changes</button>
+                <p id="editProfileError" style="color:red;display:none"></p>
+            </form>
+            <i class="fa-solid fa-x" id="closeEditProfile"></i>
+        </div>
+    </div>
+
+    <!-- FEED -->
+    <main id="home">
+        <div class="feeds">
+            <div class="feed">
+                <div class="feed-top">
+                    <div class="user">
+                        <div class="profile-picture"><img src="php/upload/default/profile.jpg" alt=""></div>
+                        <div class="info">
+                            <h3>UserName</h3>
+                            <div class="time txt-gry"><small>day ago</small></div>
+                        </div>
+                    </div>
+                    <div class="edit"><i class="fa-solid fa-ellipsis"></i></div>
+                </div>
+                <div class="feed-content"><img src="" alt="" id="feedImg"></div>
+                <div class="action-button">
+                    <div class="interaction-button">
+                        <span><i class="fa fa-heart"></i></span>
+                        <span><i class="fa fa-comment-dots" id="commentBtn"></i></span>
+                        <span><i class="fa fa-link"></i></span>
+                    </div>
+                    <div class="bookmark"><i class="fa fa-bookmark"></i></div>
+                </div>
+                <div class="likesCounter"><p>5 likes</p></div>
+                <div class="caption"><p></p></div>
+                <div class="postComment" style="display:flex">
+                    <div class="profile-picture"><img src="php/upload/default/profile.jpg" alt=""></div>
+                    <div>
+                        <form action="" id="getCommentInput">
+                            <input name="comment" placeholder="Add Comment" maxlength="2000">
+                            <input type="hidden" name="post_id" value="">
+                            <input type="submit" value="post" class="postComment">
+                        </form>
+                    </div>
+                </div>
+                <div class="specialComment" style="display:flex">
+                    <div class="profile-picture"><img src="php/upload/default/profile.jpg" alt=""></div>
+                    <div class="commenter">
+                        <p class="username">fha</p>
+                        <p class="userComment">df;sadghasfjkgh;ohkj</p>
+                    </div>
+                </div>
+                <div class="viewComment"><p>view all 2 comments</p></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- EXPLORE -->
+    <section id="exploreSection" style="display:none">
+        <div class="explore-header"><h2>Explore</h2></div>
+        <div id="exploreGrid" class="explore-grid"></div>
+    </section>
+
+    <!-- FULL POST -->
+    <div class="post-bg" id="FullPost">
+        <div class="post-box">
+            <div class="fullPost-top">
+                <div class="user">
+                    <div class="profile-picture"><img src="php/upload/default/profile.jpg" alt=""></div>
+                    <div class="info">
+                        <h3>UserName</h3>
+                        <div class="time txt-gry"><small>day ago</small></div>
+                    </div>
+                </div>
+            </div>
+            <div class="fullPost-content">
+                <div class="fullPost-img">
+                    <img src="" alt="" id="add-post">
+                    <div class="action-button">
+                        <div class="interaction-button">
+                            <span><i class="fa fa-heart"></i></span>
+                            <span><i class="fa fa-link"></i></span>
+                        </div>
+                        <div class="bookmark"><i class="fa fa-bookmark" id="FPsaved"></i></div>
+                    </div>
+                    <div class="likesCounter"><p>5 likes</p></div>
+                </div>
+                <div class="post-comments">
+                    <div class="post-comment"></div>
+                    <div class="fullPostComment">
+                        <div class="profile-picture"><img src="php/upload/default/profile.jpg" alt=""></div>
+                        <div>
+                            <form action="" id="getFullCommentInput">
+                                <input name="comment" placeholder="Add Comment" maxlength="2000">
+                                <input type="submit" value="post" class="fullPostComment">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="FullPost-close"><i class="fa-solid fa-xmark"></i></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="userpage.js"></script>
+    <script>
+        window.onload = function() {
+            displayFollowerPost("follow");
+            loadNotificationBadge();
+        };
+    </script>
+
+    <style>
+        /* Notification badge */
+        .icon { position: relative; }
+        .badge {
+            position: absolute; top: 2px; right: 2px;
+            background: red; color: white; border-radius: 50%;
+            font-size: 10px; width: 16px; height: 16px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        /* Explore grid */
+        #exploreSection { padding: 1rem; }
+        .explore-header { margin-bottom: 1rem; }
+        .explore-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4px;
+        }
+        .explore-item {
+            aspect-ratio: 1;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+        }
+        .explore-item img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+        .explore-item:hover::after {
+            content: '';
+            position: absolute; inset: 0;
+            background: rgba(0,0,0,0.3);
+        }
+        /* Messages */
+        .msg-header-row {
+            display: flex; align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        .msg-conversations { overflow-y: auto; }
+        .msg-conv-item {
+            display: flex; align-items: center; gap: 10px;
+            padding: 10px 1rem; cursor: pointer;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .msg-conv-item:hover { background: #f9f9f9; }
+        .msg-conv-item img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
+        .msg-conv-info h4 { margin: 0; font-size: 14px; }
+        .msg-conv-info p { margin: 0; font-size: 12px; color: #888; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 180px; }
+        .msg-unread-dot { width: 8px; height: 8px; background: #0095f6; border-radius: 50%; margin-left: auto; }
+        .msg-chat-view { display: flex; flex-direction: column; height: 100%; }
+        .chat-header {
+            display: flex; align-items: center; gap: 10px;
+            padding: 10px 1rem; border-bottom: 1px solid #eee;
+        }
+        .chat-partner-img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
+        .chat-messages { flex: 1; overflow-y: auto; padding: 1rem; display: flex; flex-direction: column; gap: 8px; min-height: 200px; max-height: 400px; }
+        .chat-bubble { max-width: 70%; padding: 8px 12px; border-radius: 18px; font-size: 14px; }
+        .chat-bubble.mine { background: #0095f6; color: white; align-self: flex-end; border-bottom-right-radius: 4px; }
+        .chat-bubble.theirs { background: #f0f0f0; color: #111; align-self: flex-start; border-bottom-left-radius: 4px; }
+        .chat-input-box { display: flex; gap: 8px; padding: 10px 1rem; border-top: 1px solid #eee; }
+        .chat-input-box input { flex: 1; border: 1px solid #ddd; border-radius: 20px; padding: 8px 14px; outline: none; }
+        .chat-input-box button { background: #0095f6; color: white; border: none; border-radius: 50%; width: 36px; height: 36px; cursor: pointer; }
+        .msg-user-search { padding: 1rem; }
+        .msg-user-search-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+        .msg-user-search-header input { flex: 1; border: 1px solid #ddd; border-radius: 20px; padding: 8px 14px; }
+        .msg-search-result-item { display: flex; align-items: center; gap: 10px; padding: 8px; cursor: pointer; border-radius: 8px; }
+        .msg-search-result-item:hover { background: #f0f0f0; }
+        .msg-search-result-item img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+        /* Notifications */
+        .notification-list { overflow-y: auto; }
+        .notify-item { display: flex; align-items: center; gap: 10px; padding: 10px 1rem; border-bottom: 1px solid #f0f0f0; }
+        .notify-item img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+        .notify-item.unread { background: #f0f8ff; }
+        .notify-text { flex: 1; font-size: 13px; }
+        .notify-text strong { font-weight: 600; }
+        .notify-time { font-size: 11px; color: #888; }
+        .notify-post-thumb { width: 40px; height: 40px; object-fit: cover; border-radius: 4px; }
+        .notify-empty { text-align: center; color: #888; padding: 2rem; }
+        /* Edit profile modal */
+        .editProfile-bg {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+            display: flex; align-items: center; justify-content: center;
+            z-index: 9999;
+        }
+        .editProfile-box {
+            background: white; border-radius: 12px;
+            padding: 2rem; width: 90%; max-width: 400px;
+            position: relative;
+        }
+        .editProfile-box h2 { margin-bottom: 1.5rem; }
+        .editProfile-box label { display: block; font-weight: 600; margin-bottom: 4px; margin-top: 12px; font-size: 14px; }
+        .editProfile-box input, .editProfile-box textarea {
+            width: 100%; border: 1px solid #ddd; border-radius: 8px;
+            padding: 8px 12px; font-size: 14px; box-sizing: border-box; outline: none;
+        }
+        .editProfile-box textarea { height: 80px; resize: vertical; }
+        .editProfile-box .btn { margin-top: 1.5rem; width: 100%; padding: 10px; border: none; border-radius: 8px; background: #0095f6; color: white; font-size: 15px; cursor: pointer; }
+        .editProfile-box #closeEditProfile { position: absolute; top: 1rem; right: 1rem; cursor: pointer; font-size: 16px; }
+        /* Dark mode */
+        body.dark-mode { background: #111; color: #eee; }
+        body.dark-mode aside { background: #1a1a1a; border-color: #333; }
+        body.dark-mode .feed { background: #1a1a1a; border-color: #333; }
+        body.dark-mode input, body.dark-mode textarea { background: #222; color: #eee; border-color: #444; }
+        body.dark-mode .editProfile-box { background: #1a1a1a; color: #eee; }
+        body.dark-mode .msg-conv-item:hover, body.dark-mode .notify-item.unread { background: #222; }
+        body.dark-mode .chat-bubble.theirs { background: #333; color: #eee; }
+    </style>
+</body>
+</html>

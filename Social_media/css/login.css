@@ -1,0 +1,184 @@
+/************Login page************/
+.login-bg{
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    height: max-content;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-light);
+}
+.login-page{
+    min-width: 25rem;
+    width: fit-content;
+    height: max-content;
+    display: flex;
+    padding: 1rem 2rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: var(--color-light);
+    border: .5px solid rgba(245, 230, 179, 0.808);
+    border-radius: 3px;
+    filter: drop-shadow(2px 2px 2px rgba(146, 146, 146, 0.247)) 
+            drop-shadow(-2px -2px 2px rgba(146, 146, 146, 0.247))
+            drop-shadow(-2px 2px 2px rgba(146, 146, 146, 0.247))
+            drop-shadow(2px -2px 2px rgba(146, 146, 146, 0.247));
+    
+  }
+  .login-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+   .login-top{
+    width: 100%;
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+   .login-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 10rem;
+    height: max-content;
+  }
+  .error-text{
+    
+    width: 100%;
+    max-width: 20.5rem;
+    min-height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .2rem;
+    background: transparent;
+    margin-bottom: .2rem;
+    word-break: break-word;
+  }
+  .verifyError{
+    width: 12rem;
+  }
+  .error-text span{
+    display: none;
+    color: #851923;
+    background: #ffe3e5;
+    border: 1px solid #dfa5ab;
+    width: 100%;
+    height: 100%;
+  }
+  .grid-items{
+    display: flex;
+    gap: auto;
+  }
+  .grid-items .input-box {
+    display: flex;
+    flex-direction: column;
+  }
+  .grid-items .input-box:first-child{
+    margin-right: .25rem;
+    width: 10rem;
+  }
+  .grid-items .input-box:last-child{
+    margin-left: .25rem;
+    width: 10rem;
+  }
+  .login-box .input-box{
+    display: flex;
+    flex-direction: column;
+  }
+  .login-box .input-box input{
+    width: 100%;
+    height: 2rem;
+    padding: 0 .2rem;
+    margin: .45rem 0;
+    background: rgba(245, 230, 179, 0.2);
+    border-radius: .2rem;
+    border: .5px solid rgba(245, 230, 179, 0.808);
+  }
+  .login-box .input-box:nth-child(5){
+    width: 10rem;
+  }
+  .LoginInput .input-box input{
+    width: 16rem;
+  }
+  .login-box .Submit {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .login-box .Submit input{
+    background: rgba(0, 162, 255, 0.6);
+    width: 100%;
+    height: 2rem;
+    border-radius: .3rem;
+    margin: 1rem 0;
+  }
+  .login-box .Submit input:hover{
+    opacity: 0.8;
+  }
+  .login-box .Submit a {
+    position: absolute;
+    top: -.15rem;
+    right: 0;
+    font-size: .8rem;
+    color: blue;
+  }
+  .NewLogin{
+    width: 80%;
+    padding: 2.5rem 0;
+    text-align: center;
+    margin-top: 3rem;
+    border-top: 1px solid rgba(245, 230, 179, 0.808);
+  }
+  .NewLogin span{
+    color: blue;
+    cursor: pointer;
+  }
+  .login-page .signup{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+  .login-box h3{
+    font-size: 1.4rem;
+    margin: .7rem;
+  }
+  .login-box p{
+    font-size: .85rem;
+    margin: 0 .7rem .7rem .7rem;
+    max-width: 21rem;
+  }
+  .login-box .OTP-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+  }
+  .login-box .OTP-box input{
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.2rem;
+    background: rgba(245, 230, 179, 0.2);
+    border-radius: .2rem;
+    border: .5px solid rgba(245, 230, 179, 0.808);
+    margin: 0 .4rem;
+    text-align: center;
+  }
+  #signup{
+    display: none;
+  }
+  #verifyEmail{
+    display: none;
+  }
